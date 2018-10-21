@@ -7,7 +7,7 @@
 @section('content')
 <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
     <div class="image">
-        <img src="images/banner2.png" alt="" />
+        <img src="images/banner2.jpg" alt="" />
     </div>
     <div class="content"> 
 
