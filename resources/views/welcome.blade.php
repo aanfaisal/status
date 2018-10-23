@@ -23,7 +23,7 @@
             </ul>
         </div>
         <div class="image">
-            <img src="images/banner.jpg" alt="" />
+            <img src="images/banner1.png" alt="" />
         </div>
     </section>
 @endsection
