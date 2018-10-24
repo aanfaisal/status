@@ -14,11 +14,12 @@ class CreateKerusakansTable extends Migration
     {
         Schema::create('kerusakans', function (Blueprint $table) {
             $table->increments('rusak_id');
-            $table->timestamps();
             $table->string('nama')->nullable();
             $table->string('pelapor')->nullable();
             $table->string('bagian')->nullable();
             $table->string('status')->nullable();
+            
+            $table->timestamps();
             });
     }
 

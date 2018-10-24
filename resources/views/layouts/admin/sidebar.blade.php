@@ -39,7 +39,7 @@
                     </li>
                     @role('adminmanajer')
                       <li><a href="{{ url('home') }}"><i class="fa fa-home"></i>Laporan</a></li>
-                    @endrole
+                    @endrole 
                       
                       <li><a href="{{ url('status') }}"><i class="fa fa-home"></i>Status Server</a></li>
                       
