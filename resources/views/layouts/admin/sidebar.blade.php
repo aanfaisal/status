@@ -27,15 +27,31 @@
                 @if (Auth::check())
                     <li><a href="{{ url('home') }}"><i class="fa fa-home"></i>Dashboard</a></li>
                     
-                    <li><a href="{{ url('') }}"><i class="fa fa-bolt"></i> </a></li>
-                    <li><a><i class="fa fa-gears"></i> Setting <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-gears"></i> Kerusakan <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                          <li><a href="{{ url('') }}">aa</a></li>
-                          @role('admin')
-                          <li><a href="{{ url('manage/user') }}">User Managemen</a></li>
+                          @role('karyawan')
+                          <li><a href="{{ url('') }}">Lapor Kerusakan</a></li>
+                          @endrole
+                          @role('adminmanajer')
+                          <li><a href="{{ url('') }}">Progress Perbaikan</a></li>
                           @endrole
                       </ul>
-                    </li> 
+                    </li>
+                    @role('adminmanajer')
+                      <li><a href="{{ url('home') }}"><i class="fa fa-home"></i>Laporan</a></li>
+                    @endrole
+                      
+                      <li><a href="{{ url('status') }}"><i class="fa fa-home"></i>Status Server</a></li>
+                      
+                    @role('adminmanajer')
+                    <li><a><i class="fa fa-gears"></i> Setting <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                          
+                        <li><a href="{{ url('kelola/user') }}">Kelola User</a></li>
+                      
+                      </ul>
+                    </li>
+                    @endrole 
                 </ul>
                 @endif
 
@@ -44,7 +60,7 @@
         <!-- /sidebar menu -->
         <!-- /menu footer buttons -->
         <div class="sidebar-footer hidden-small">
-            <a data-toggle="tooltip" data-placement="top" title="Settings" href="{{ url('manage/user') }}">
+            <a data-toggle="tooltip" data-placement="top" title="Settings" href="{{ url('kelola/user') }}">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
             </a>
             <a data-toggle="tooltip" data-placement="top" title="FullScreen" onclick="toggleFullScreen()">
