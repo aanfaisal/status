@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Kelola;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Auth;
+use App\Permission;
 use App\Kerusakan;
+use App\User;
 use Illuminate\Http\Request;
 
 class KerusakanController extends Controller
@@ -17,6 +20,7 @@ class KerusakanController extends Controller
      */
     public function index(Request $request)
     {
+       
         $keyword = $request->get('search');
         $perPage = 25;
 
@@ -30,7 +34,13 @@ class KerusakanController extends Controller
             $kerusakan = Kerusakan::latest()->paginate($perPage);
         }
 
-        return view('admin.kerusakan.index', compact('kerusakan'));
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.kerusakan.index', compact('kerusakan'));
+        } else {
+            return redirect('kelola/kerusakan/create');
+            // abort(503);
+        }
+        
     }
 
     /**
@@ -71,7 +81,13 @@ class KerusakanController extends Controller
     {
         $kerusakan = Kerusakan::findOrFail($id);
 
-        return view('admin.kerusakan.show', compact('kerusakan'));
+        if (Auth::user()->hasRole(['manajer', 'admin'])) {
+            return view('admin.kerusakan.show', compact('kerusakan'));
+        } else {
+            return redirect('kelola/kerusakan/create');
+            // abort(503);
+        }
+        //return view('admin.kerusakan.show', compact('kerusakan'));
     }
 
     /**
@@ -84,8 +100,14 @@ class KerusakanController extends Controller
     public function edit($id)
     {
         $kerusakan = Kerusakan::findOrFail($id);
-
-        return view('admin.kerusakan.edit', compact('kerusakan'));
+        
+        if (Auth::user()->hasRole(['manajer', 'admin'])) {
+            return view('admin.kerusakan.edit', compact('kerusakan'));
+        } else {
+            return redirect('kelola/kerusakan/create');
+            // abort(503);
+        }
+       // return view('admin.kerusakan.edit', compact('kerusakan'));
     }
 
     /**
