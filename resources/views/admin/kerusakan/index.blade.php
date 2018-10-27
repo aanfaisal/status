@@ -48,7 +48,7 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Nama</th><th>Pelapor</th><th>Bagian</th><th>Status</th><th>Actions</th>
+                                        <th>ID</th><th>Pelapor</th><th>Nm Rusak</th><th>Rincian</th><th>Status</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,7 +56,7 @@
                                 @foreach($kerusakan as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->nama }}</td><td>{{ $item->pelapor }}</td><td>{{ $item->bagian }}</td><td>{{ $item->status }}</td>
+                                        <td>{{ $item->pelapor }}</td><td>{{ $item->nm_rusak }}</td><td>{{ $item->rincian }}</td><td>{{ $item->status }}</td>
                                         <td>
                                             <a href="{{ url('/kelola/kerusakan/' . $item->rusak_id) }}" title="View Kerusakan"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/kelola/kerusakan/' . $item->rusak_id . '/edit') }}" title="Edit Kerusakan"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

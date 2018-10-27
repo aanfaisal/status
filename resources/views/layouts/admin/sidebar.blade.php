@@ -27,23 +27,22 @@
                 @if (Auth::check())
                     <li><a href="{{ url('home') }}"><i class="fa fa-home"></i>Dashboard</a></li>
                     
-                    <li><a><i class="fa fa-gears"></i> Kerusakan <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-bolt"></i> Kerusakan <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                           @role('karyawan')
-                          <li><a href="{{ url('') }}">Lapor Kerusakan</a></li>
+                          <li><a href="{{ url('kelola/kerusakan/create') }}">Lapor Kerusakan</a></li>
                           @endrole
-                          @role('adminmanajer')
+                          @role('admin')
                           <li><a href="{{ url('') }}">Progress Perbaikan</a></li>
-                          @endrole
+                          @endrole 
                       </ul>
                     </li>
-                    @role('adminmanajer')
-                      <li><a href="{{ url('home') }}"><i class="fa fa-home"></i>Laporan</a></li>
-                    @endrole 
+                    @role('admin')
+                      <li><a href="{{ url('') }}"><i class="fa fa-file"></i>Laporan</a></li>
+                    @endrole
                       
                       <li><a href="{{ url('status') }}"><i class="fa fa-home"></i>Status Server</a></li>
-                      
-                    @role('adminmanajer')
+                      @role('admin')
                     <li><a><i class="fa fa-gears"></i> Setting <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                           

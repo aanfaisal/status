@@ -21,9 +21,9 @@ class KerusakanController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $kerusakan = Kerusakan::where('nama', 'LIKE', "%$keyword%")
-                ->orWhere('pelapor', 'LIKE', "%$keyword%")
-                ->orWhere('bagian', 'LIKE', "%$keyword%")
+            $kerusakan = Kerusakan::where('pelapor', 'LIKE', "%$keyword%")
+                ->orWhere('nm_rusak', 'LIKE', "%$keyword%")
+                ->orWhere('rincian', 'LIKE', "%$keyword%")
                 ->orWhere('status', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {

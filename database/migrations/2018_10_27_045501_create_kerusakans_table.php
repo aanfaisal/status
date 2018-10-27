@@ -14,13 +14,12 @@ class CreateKerusakansTable extends Migration
     {
         Schema::create('kerusakans', function (Blueprint $table) {
             $table->increments('rusak_id');
-            $table->string('nama')->nullable();
             $table->string('pelapor')->nullable();
-            $table->string('bagian')->nullable();
+            $table->string('nm_rusak')->nullable();
+            $table->text('rincian')->nullable();
             $table->string('status')->nullable();
-            
             $table->timestamps();
-            });
+        });
     }
 
     /**

@@ -48,7 +48,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $kerusakan->rusak_id }}</td>
                                     </tr>
-                                    <tr><th> Nama </th><td> {{ $kerusakan->nama }} </td></tr><tr><th> Pelapor </th><td> {{ $kerusakan->pelapor }} </td></tr><tr><th> Bagian </th><td> {{ $kerusakan->bagian }} </td></tr><tr><th> Status </th><td> {{ $kerusakan->status }} </td></tr>
+                                    <tr><th> Pelapor </th><td> {{ $kerusakan->pelapor }} </td></tr><tr><th> Nm Rusak </th><td> {{ $kerusakan->nm_rusak }} </td></tr><tr><th> Rincian </th><td> {{ $kerusakan->rincian }} </td></tr><tr><th> Status </th><td> {{ $kerusakan->status }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

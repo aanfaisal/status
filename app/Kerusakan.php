@@ -25,7 +25,7 @@ class Kerusakan extends Model
      *
      * @var array
      */
-    protected $fillable = ['nama', 'pelapor', 'bagian', 'status'];
+    protected $fillable = ['pelapor', 'nm_rusak', 'status'];
 
     
 }

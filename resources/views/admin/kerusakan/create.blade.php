@@ -24,7 +24,6 @@
                   </div>
 
                   <div class="x_content">
-                        <a href="{{ url('/kelola/kerusakan') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 
