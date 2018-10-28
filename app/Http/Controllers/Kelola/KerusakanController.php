@@ -34,7 +34,7 @@ class KerusakanController extends Controller
             $kerusakan = Kerusakan::latest()->paginate($perPage);
         }
 
-        if (Auth::user()->hasRole('admin')) {
+        if (Auth::user()->hasRole(['admin','manajer'])) {
             return view('admin.kerusakan.index', compact('kerusakan'));
         } else {
             return redirect('kelola/kerusakan/create');
@@ -67,7 +67,13 @@ class KerusakanController extends Controller
         
         Kerusakan::create($requestData);
 
-        return redirect('kelola/kerusakan')->with('flash_message', 'Kerusakan added!');
+        if (Auth::user()->hasRole(['karyawan'])) {
+            return redirect('kelola/kerusakan/create')->with('flash_message', 'Data Kerusakan Ditambahkan');
+        } else {
+            return redirect('kelola/kerusakan')->with('flash_message', 'Data Kerusakan Ditambahkan');
+            // abort(503);
+        }
+        
     }
 
     /**
@@ -125,8 +131,14 @@ class KerusakanController extends Controller
         
         $kerusakan = Kerusakan::findOrFail($id);
         $kerusakan->update($requestData);
-
-        return redirect('kelola/kerusakan')->with('flash_message', 'Kerusakan updated!');
+        
+        if (Auth::user()->hasRole(['karyawan'])) {
+            return redirect('kelola/kerusakan/create')->with('flash_message', 'Data Kerusakan Telah Di Update');
+        } else {
+            return redirect('kelola/kerusakan')->with('flash_message', 'Data Kerusakan Telah Di Update');
+            // abort(503);
+        }
+        
     }
 
     /**
@@ -140,6 +152,6 @@ class KerusakanController extends Controller
     {
         Kerusakan::destroy($id);
 
-        return redirect('kelola/kerusakan')->with('flash_message', 'Kerusakan deleted!');
+        return redirect('kelola/kerusakan')->with('flash_message', 'Data Kerusakan Dihapus');
     }
 }
