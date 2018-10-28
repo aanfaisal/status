@@ -32,16 +32,16 @@
                           @role('karyawan')
                           <li><a href="{{ url('kelola/kerusakan/create') }}">Lapor Kerusakan</a></li>
                           @endrole
-                          @role('admin')
-                          <li><a href="{{ url('') }}">Progress Perbaikan</a></li>
+                          @role(['admin','manajer'])
+                          <li><a href="{{ url('kelola/kerusakan/') }}">Progress Perbaikan</a></li>
                           @endrole 
                       </ul>
                     </li>
-                    @role('admin')
-                      <li><a href="{{ url('') }}"><i class="fa fa-file"></i>Laporan</a></li>
+                    @role(['admin','manajer'])
+                      <li><a href="{{ url('kelola/laporan') }}"><i class="fa fa-file"></i>Laporan</a></li>
                     @endrole
                       
-                      <li><a href="{{ url('status') }}"><i class="fa fa-home"></i>Status Server</a></li>
+                      <li><a href="{{ url('status') }}"><i class="fa fa-check"></i>Status Server</a></li>
                       @role('admin')
                     <li><a><i class="fa fa-gears"></i> Setting <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">

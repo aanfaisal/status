@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Kerusakan
+    Data Kerusakan
 @endsection
 
 @section('maincontent')
@@ -10,7 +10,7 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Kerusakan</h3>
+                    <h3>Data Kerusakan</h3>
                   </div>
             </div>
 

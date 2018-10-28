@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Kerusakan
+    Lihat Data Kerusakan
 @endsection
 
 @section('maincontent')
@@ -10,7 +10,7 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Kerusakan</h3>
+                    <h3>Lihat Data Kerusakan</h3>
                   </div>
             </div>
  
@@ -19,7 +19,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Kerusakan<small>Data</small></h2>
+                    <h2>Lihat Data Kerusakan</h2>
                     <div class="clearfix"></div>
                   </div>
 
@@ -46,9 +46,25 @@
                             <table class="table table-borderless">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th><td>{{ $kerusakan->rusak_id }}</td>
+                                        <th>No</th>
+                                        <td>{{ $kerusakan->rusak_id }}</td>
                                     </tr>
-                                    <tr><th> Pelapor </th><td> {{ $kerusakan->pelapor }} </td></tr><tr><th> Nm Rusak </th><td> {{ $kerusakan->nm_rusak }} </td></tr><tr><th> Rincian </th><td> {{ $kerusakan->rincian }} </td></tr><tr><th> Status </th><td> {{ $kerusakan->status }} </td></tr>
+                                    <tr>
+                                        <th> Nama Pelapor </th>
+                                        <td> {{ $kerusakan->pelapor }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Kategori Kerusakan </th>
+                                        <td> {{ $kerusakan->nm_rusak }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Rincian </th>
+                                        <td> {{ $kerusakan->rincian }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Status </th>
+                                        <td> {{ $kerusakan->status }} </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

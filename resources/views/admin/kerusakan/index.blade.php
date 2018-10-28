@@ -48,7 +48,7 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Pelapor</th><th>Nm Rusak</th><th>Rincian</th><th>Status</th><th>Actions</th>
+                                        <th>No</th><th>Nama Pelapor</th><th>Kategori Kerusakan</th><th>Rincian</th><th>Status</th><th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
