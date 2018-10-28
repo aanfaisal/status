@@ -23,7 +23,12 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-
+                        <div class="container">
+                                <div class="jumbotron">
+                                  <h3>Hi, {{ auth()->user()->name }}</h3>
+                                  <p>Selamat Datang di {{ env('APP_NAME') }}</p>
+                                </div>
+                              </div>
                 </div>
               </div>
             </div>
