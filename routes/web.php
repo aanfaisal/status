@@ -33,8 +33,10 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
-
+    Route::get('/status', 'Kelola\\StatusController@index')->name('status');
+    
     Route::resource('kelola/kerusakan', 'Kelola\\KerusakanController');
     Route::resource('kelola/user', 'Kelola\\UsersController');
 
+    
 });
