@@ -30,26 +30,22 @@
                     <li><a><i class="fa fa-bolt"></i> Kerusakan <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                           @role('karyawan')
-                          <li><a href="{{ url('kelola/kerusakan/create') }}">Lapor Kerusakan</a></li>
+                            <li><a href="{{ url('kelola/kerusakan/create') }}">Lapor Kerusakan</a></li>
                           @endrole
                           @role(['admin','manajer'])
-                          <li><a href="{{ url('kelola/kerusakan/') }}">Progress Perbaikan</a></li>
+                            <li><a href="{{ url('kelola/kerusakan/') }}"><i class="fa fa-file"></i>Data Kerusakan</a></li>
+                            <li><a href="{{ url('kelola/laporan') }}"><i class="fa fa-file-pdf-o"></i>Export Data Kerusakan</a></li>
                           @endrole 
                       </ul>
                     </li>
-                    @role(['admin','manajer'])
-                      <li><a href="{{ url('kelola/laporan') }}"><i class="fa fa-file"></i>Laporan</a></li>
-                    @endrole
-                      
-                      <li><a href="{{ url('status') }}"><i class="fa fa-check"></i>Status Server</a></li>
-                      @role('admin')
-                    <li><a><i class="fa fa-gears"></i> Setting <span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                          
-                        <li><a href="{{ url('kelola/user') }}">Kelola User</a></li>
-                      
-                      </ul>
-                    </li>
+                    
+                    <li><a href="{{ url('status') }}"><i class="fa fa-check"></i>Status Server</a></li>
+                    @role('admin')
+                      <li><a><i class="fa fa-gears"></i> Setting <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li><a href="{{ url('kelola/user') }}">Kelola User</a></li>
+                        </ul>
+                      </li>
                     @endrole 
                 </ul>
                 @endif

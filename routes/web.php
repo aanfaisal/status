@@ -35,6 +35,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/status', 'Kelola\\StatusController@index')->name('status');
     
+    Route::get('kelola/laporan', 'Kelola\\LaporanController@index')->name('laporan');
+
     Route::resource('kelola/kerusakan', 'Kelola\\KerusakanController');
     Route::resource('kelola/user', 'Kelola\\UsersController');
 

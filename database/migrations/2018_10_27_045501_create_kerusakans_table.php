@@ -17,7 +17,7 @@ class CreateKerusakansTable extends Migration
             $table->string('pelapor')->nullable();
             $table->string('nm_rusak')->nullable();
             $table->text('rincian')->nullable();
-            $table->string('status')->nullable();
+            $table->string('status')->default('Antrian');
             $table->timestamps();
         });
     }

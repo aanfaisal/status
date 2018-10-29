@@ -9,10 +9,20 @@ use Auth;
 use App\Permission;
 use App\Kerusakan;
 use App\User;
+use Session;
 use Illuminate\Http\Request;
 
 class KerusakanController extends Controller
 {
+    /**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
+	public function __construct() {
+		$this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -31,8 +41,15 @@ class KerusakanController extends Controller
                 ->orWhere('status', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $kerusakan = Kerusakan::latest()->paginate($perPage);
+            $kerusakan = Kerusakan::OrderBy('created_at', 'asc')->paginate($perPage);
         }
+
+        // Filter Tanggal
+        // if ($request->has('from') && $request->has('to')) {
+        //     $from = $request->get('from')->toDateString();
+        //     $to = $request->get('to')->toDateString();
+        //     $kerusakan = Kerusakan::whereBetween('created_at', [$from, $to])->paginate($perPage);
+        // }
 
         if (Auth::user()->hasRole(['admin','manajer'])) {
             return view('admin.kerusakan.index', compact('kerusakan'));
@@ -50,7 +67,13 @@ class KerusakanController extends Controller
      */
     public function create()
     {
-        return view('admin.kerusakan.create');
+        if (Auth::user()->hasRole(['admin','manajer'])) {
+            return view('admin.kerusakan.create');
+        } else {
+            return view('admin.kerusakan.create1');
+            // abort(503);
+        }
+        
     }
 
     /**
@@ -64,8 +87,22 @@ class KerusakanController extends Controller
     {
         
         $requestData = $request->all();
+        //dd($requestData);
+       
+        $kerusakan = new Kerusakan;
+        //$status = "Antrian";
+
+        $kerusakan->pelapor = $request->pelapor;
+        $kerusakan->nm_rusak =$request->nm_rusak;
+        $kerusakan->rincian = $request->rincian;
+        $kerusakan->status = $request->status;
         
-        Kerusakan::create($requestData);
+        $kerusakan->save();
+
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Menambahkan Data Kerusakan" 
+        ]);
 
         if (Auth::user()->hasRole(['karyawan'])) {
             return redirect('kelola/kerusakan/create')->with('flash_message', 'Data Kerusakan Ditambahkan');
@@ -131,7 +168,12 @@ class KerusakanController extends Controller
         
         $kerusakan = Kerusakan::findOrFail($id);
         $kerusakan->update($requestData);
-        
+
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Mengupdate Data Kerusakan" 
+        ]);
+
         if (Auth::user()->hasRole(['karyawan'])) {
             return redirect('kelola/kerusakan/create')->with('flash_message', 'Data Kerusakan Telah Di Update');
         } else {

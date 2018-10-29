@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Data Kerusakan
+    Edit Data User
 @endsection
 
 @section('maincontent')
@@ -10,21 +10,23 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Data Kerusakan</h3>
+                    <h3>Use</h3>
                   </div>
             </div>
 
-            <div class="clearfix"></div>
+        <div class="clearfix"></div>
         <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Kerusakan<small>Data</small></h2>
+                    <h2>User<small>Data</small></h2>
                     <div class="clearfix"></div>
                   </div>
-
                   <div class="x_content">
-                        
+
+                        <a href="{{ url('kelola/user') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
+                        <br />
+                        <br />
 
                         @if ($errors->any())
                             <ul class="alert alert-danger">
@@ -34,9 +36,14 @@
                             </ul>
                         @endif
 
-                        {!! Form::open(['url' => '/kelola/kerusakan', 'class' => 'form-horizontal', 'files' => true]) !!}
+                        {!! Form::model($use, [
+                            'method' => 'PATCH',
+                            'url' => ['kelola/user', $use->id],
+                            'class' => 'form-horizontal',
+                            'files' => true
+                        ]) !!}
 
-                        @include ('admin.kerusakan.form')
+                        @include ('admin.use.form', ['submitButtonText' => 'Update'])
 
                         {!! Form::close() !!}
 
@@ -45,12 +52,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('htmlpage')
-
-@endsection
-
-@section('jspage')
-
 @endsection

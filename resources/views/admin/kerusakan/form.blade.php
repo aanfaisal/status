@@ -1,25 +1,28 @@
 <div class="form-group {{ $errors->has('pelapor') ? 'has-error' : ''}}">
-    {!! Form::label('pelapor', 'Pelapor', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('pelapor', 'Nama Pelapor', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('pelapor', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
         {!! $errors->first('pelapor', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('nm_rusak') ? 'has-error' : ''}}">
-    {!! Form::label('nm_rusak', 'Nm Rusak', ['class' => 'col-md-4 control-label']) !!}
+</div>
+<div class="form-group {{ $errors->has('nm_rusak') ? 'has-error' : ''}}">
+    {!! Form::label('nm_rusak', 'Pilih Kategori Kerusakan', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('nm_rusak', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+        {!! Form::select('nm_rusak', ['Software Error' => 'Software Error', 'Hardware Error' => 'Hardware Error', 'Koneksi Internet' => 'Koneksi Internet','Lain-Lain' => 'Lain-Lain'],null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
         {!! $errors->first('nm_rusak', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('rincian') ? 'has-error' : ''}}">
+</div>
+<div class="form-group {{ $errors->has('rincian') ? 'has-error' : ''}}">
     {!! Form::label('rincian', 'Rincian', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::textarea('rincian', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
         {!! $errors->first('rincian', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('status') ? 'has-error' : ''}}">
+</div>
+<div class="form-group {{ $errors->has('status') ? 'has-error' : ''}}">
     {!! Form::label('status', 'Status', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('status', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+        {!! Form::select('status', ['Antrian' => 'Antrian', 'Proses' => 'Proses', 'Selesai' => 'Selesai'], null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
         {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
