@@ -19,6 +19,15 @@
         {!! $errors->first('rincian', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
+
+<div class="form-group {{ $errors->has('keterangan') ? 'has-error' : ''}}">
+    {!! Form::label('keterangan', 'Keterangan', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::text('keterangan', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+        {!! $errors->first('keterngan', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
 <div class="form-group {{ $errors->has('status') ? 'has-error' : ''}}">
     {!! Form::label('status', 'Status', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">

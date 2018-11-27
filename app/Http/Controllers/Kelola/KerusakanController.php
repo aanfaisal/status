@@ -39,6 +39,7 @@ class KerusakanController extends Controller
                 ->orWhere('nm_rusak', 'LIKE', "%$keyword%")
                 ->orWhere('rincian', 'LIKE', "%$keyword%")
                 ->orWhere('status', 'LIKE', "%$keyword%")
+                ->orWhere('keterangan', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $kerusakan = Kerusakan::OrderBy('created_at', 'asc')->paginate($perPage);
@@ -95,6 +96,7 @@ class KerusakanController extends Controller
         $kerusakan->pelapor = $request->pelapor;
         $kerusakan->nm_rusak =$request->nm_rusak;
         $kerusakan->rincian = $request->rincian;
+        $kerusakan->keterangan = $request->keterangan;
         $kerusakan->status = $request->status;
         
         $kerusakan->save();

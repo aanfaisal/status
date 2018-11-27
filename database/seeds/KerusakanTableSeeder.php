@@ -22,6 +22,7 @@ class KerusakanTableSeeder extends Seeder
                 'pelapor' => $faker->name,
                 'nm_rusak' => $faker->randomElement(['Software Error', 'Hardware Error', 'Koneksi Internet','Lain-Lain']),
                 'rincian' => $faker->text,
+                'keterangan' => $faker->randomElement(['Bad','Not Bad','Finish']),
                 'status' => $faker->randomElement(['Antrian','Proses','Selesai']),
                 //'wktu_pengukuran' => $faker->dateTimeInInterval($startDate = '-30 days', $interval = '+ 1 days', $timezone = 'Asia/Jakarta')
                 'created_at' => $faker->dateTimeBetween('-30 days','-2 days'), //Asia / Jakarta

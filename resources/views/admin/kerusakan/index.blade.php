@@ -54,6 +54,7 @@
                                         <th>Kategori Kerusakan</th>
                                         <th>Rincian</th>
                                         <th>Tanggal</th>
+                                        <th>Keterangan</th>
                                         <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -67,6 +68,7 @@
                                         <td>{{ $item->nm_rusak }}</td>
                                         <td>{!! strlen($item->rincian) > 70 ? substr($item->rincian,0,70) : $item->rincian !!}</td>
                                         <td>{{ Carbon\Carbon::parse($item->created_at)->format('D,d/m/Y') }}</td>
+                                        <td>{!! strlen($item->keterangan) > 70 ? substr($item->keterangan,0,70) : $item->keterangan !!}</td>
                                         <td>{!! str_replace(['Antrian', 'Proses', 'Selesai'], ['<span class="label label-default">Antrian</span>', '<span class="label label-info">Proses</span>', '<span class="label label-success">Selesai</span>'], ucwords($item->status)) !!}</td>
                                         <td>
                                             <a href="{{ url('/kelola/kerusakan/' . $item->rusak_id) }}" title="View Kerusakan"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> Lihat</button></a><br>
